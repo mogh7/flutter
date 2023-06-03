@@ -450,7 +450,12 @@ class _SearchViewRoute extends PopupRoute<_SearchViewRoute> {
     if (context != null) {
       final RenderBox searchBarBox = context.findRenderObject()! as RenderBox;
       final Size boxSize = searchBarBox.size;
+<<<<<<< HEAD
       final Offset boxLocation = searchBarBox.localToGlobal(Offset.zero);
+=======
+      final NavigatorState navigator = Navigator.of(context);
+      final Offset boxLocation = searchBarBox.localToGlobal(Offset.zero, ancestor: navigator.context.findRenderObject());
+>>>>>>> f92f44110e87bad5ff168335c36da6f6053036e6
       return boxLocation & boxSize;
     }
     return null;
